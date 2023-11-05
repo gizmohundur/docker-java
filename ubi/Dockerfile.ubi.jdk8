@@ -1,6 +1,15 @@
-FROM registry.pupgizmo.com/base/ubi9:latest 
+FROM registry.access.redhat.com/ubi9/ubi:latest
 
-COPY adoptium.repo /etc/yum.repos.d
+ARG ADOPTIUM_URL=https://packages.adoptium.net/artifactory
+
+RUN cat > /etc/yum.repos.d/adoptium.repo << EOF \
+[Adoptium] \
+name=Adoptium \
+baseurl=${ADOPTIUM_URL}/rpm/rhel/\$releasever/\$basearch \
+enabled=1 \
+gpgcheck=1 \
+gpgkey=${ADOPTIUM_URL}/api/gpg/key/public \
+EOF 
 
 RUN dnf install -y temurin-8-jdk git wget zip gzip tar procps && \
     dnf clean all 

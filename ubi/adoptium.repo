@@ -1,6 +1,8 @@
+cat > /etc/yum.repos.d/adoptium.repo << EOF
 [Adoptium]
 name=Adoptium
-baseurl=https://nexus.home.jpconsulted.com/repository/adoptium/rpm/rhel/$releasever/$basearch
+baseurl=${ADOPTIUM_URL}/rpm/rhel/\$releasever/\$basearch
 enabled=1
 gpgcheck=1
-gpgkey=https://nexus.home.jpconsulted.com/repository/adoptium/api/gpg/key/public
+gpgkey=${ADOPTIUM_URL}/api/gpg/key/public
+EOF

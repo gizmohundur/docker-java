@@ -1,4 +1,4 @@
-FROM registry.pupgizmo.com/base/ubuntu:jammy
+FROM registry.pupgizmo.com/ubuntu/ubuntu:22.04
 
 RUN apt-get update && \
     wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | tee /etc/apt/keyrings/adoptium.asc && \
