@@ -1,0 +1,6 @@
+FROM registry.pupgizmo.com/base/ubi9:latest 
+
+COPY adoptium.repo /etc/yum.repos.d
+
+RUN dnf install -y temurin-17-jre git wget zip gzip tar procps && \
+    dnf clean all 
