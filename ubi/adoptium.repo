@@ -1,8 +1,0 @@
-cat > /etc/yum.repos.d/adoptium.repo << EOF
-[Adoptium]
-name=Adoptium
-baseurl=${ADOPTIUM_URL}/rpm/rhel/\$releasever/\$basearch
-enabled=1
-gpgcheck=1
-gpgkey=${ADOPTIUM_URL}/api/gpg/key/public
-EOF
